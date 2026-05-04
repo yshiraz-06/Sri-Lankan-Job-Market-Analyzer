@@ -103,3 +103,21 @@ df.to_csv("jobs_clean.csv", index=False)
 
 print(f"\nTotal jobs analyzed: {len(df)}")
 print(f"Jobs with at least one skill tag: {df['skills_found'].apply(len).gt(0).sum()}")
+
+# ITPro skill analysis 
+df2 = pd.read_csv("itpro_jobs.csv")
+
+df2["skills_found"] = df2["title"].apply(extract_skills)
+
+all_skills2 = [s for skills in df2["skills_found"] for s in skills]
+skill_counts2 = Counter(all_skills2)
+
+print("\n── ITPro.lk: Top 20 in-demand TECH skills ──")
+for skill, count in skill_counts2.most_common(20):
+    pct = round((count / len(df2)) * 100, 1)
+    print(f"  {skill:<25} {count:>4} jobs  ({pct}%)")
+
+skill_df2 = pd.DataFrame(skill_counts2.most_common(), columns=["skill", "count"])
+skill_df2["percentage"] = (skill_df2["count"] / len(df2) * 100).round(1)
+skill_df2.to_csv("itpro_skill_counts.csv", index=False)
+print(f"\nSaved to itpro_skill_counts.csv")
