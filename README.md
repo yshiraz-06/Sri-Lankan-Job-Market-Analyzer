@@ -30,15 +30,15 @@ A data pipeline that scrapes, cleans, and analyzes real-time job listings from *
 | Deployment | Streamlit Community Cloud |
 
 ## Project Structure
-├── scraper.py          # TopJobs.lk scraper
-├── scraper_itpro.py    # ITPro.lk category scraper
-├── clean.py            # Data cleaning pipeline
-├── skills.py           # Skill extraction engine
-├── app.py              # Streamlit dashboard
-├── jobs_clean.csv      # Cleaned TopJobs data
-├── itpro_jobs.csv      # ITPro data with categories
-├── skill_counts.csv    # Skill frequency (TopJobs)
-└── itpro_skill_counts.csv  # Skill frequency (ITPro)
+- scraper.py          # TopJobs.lk scraper
+- scraper_itpro.py    # ITPro.lk category scraper
+- clean.py            # Data cleaning pipeline
+- skills.py           # Skill extraction engine
+- app.py              # Streamlit dashboard
+- jobs_clean.csv      # Cleaned TopJobs data
+- itpro_jobs.csv      # ITPro data with categories
+- skill_counts.csv    # Skill frequency (TopJobs)
+- itpro_skill_counts.csv  # Skill frequency (ITPro)
 
 ## Run Locally
 
